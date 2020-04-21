@@ -6,7 +6,7 @@ interface Balance {
   total: number;
 }
 
-interface CreateTransactionData {
+interface CreateTransactionDTO {
   title: string;
   value: number;
   type: 'income' | 'outcome';
@@ -51,7 +51,7 @@ class TransactionsRepository {
     return { income, outcome, total };
   }
 
-  public create({ title, value, type }: CreateTransactionData): Transaction {
+  public create({ title, value, type }: CreateTransactionDTO): Transaction {
     const transaction = new Transaction({
       title,
       value,
